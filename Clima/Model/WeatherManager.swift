@@ -33,6 +33,14 @@ struct WeatherManager {
     }
     
     func handle(data: Data?, response: URLResponse?, error: Error?){
+        if error != nil,
+        let errorSafe = error {
+            print(errorSafe)
+        }
         
+        if let safeData = data {
+            let dataString = String(data: safeData, encoding: .utf8)
+            print(dataString ?? "No data")
+        }
     }
 }
