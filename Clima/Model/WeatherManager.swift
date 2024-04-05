@@ -22,7 +22,7 @@ struct WeatherManager {
             //2. Create a URLSession.
             let session = URLSession(configuration: .default)
             //3. Give URLSession a task.
-            let task = session.dataTask(with: url, completionHandler: <#T##(Data?, URLResponse?, Error?) -> Void#>)
+            let task = session.dataTask(with: url, completionHandler: handle(data:response:error:))
             /*
              Las clases recien creaadas nacen inicializadas con un estado suspendida.
              Para que esa tarea sea inicalizada se llama el metodo `resume`
@@ -30,5 +30,9 @@ struct WeatherManager {
             //4. Start the task.
             task.resume()
         }
+    }
+    
+    func handle(data: Data?, response: URLResponse?, error: Error?){
+        
     }
 }
